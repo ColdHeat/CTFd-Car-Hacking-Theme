@@ -44,10 +44,10 @@ def setup():
             admin.banned = True
 
             # Index page
-            page = Pages('index', """<div class="container main-container">
+            page = Pages('index', """<div class="container main-container index" id="index">
     <img class="logo" src="static/original/img/logo.png" />
     <h3 class="text-center">
-        <p>A cool CTF platform from <a href="https://ctfd.io">ctfd.io</a></p>
+        <p>A cool CTF platform from (tom)<a href="https://ctfd.io">ctfd.io</a></p>
         <p>Follow us on social media:</p>
         <a href="https://twitter.com/ctfdio"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a>&nbsp;
         <a href="https://facebook.com/ctfdio"><i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i></a>&nbsp;

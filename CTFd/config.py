@@ -113,7 +113,7 @@ class Config(object):
 
     http://pythonhosted.org/Flask-Caching/#configuring-flask-caching
     '''
-    CACHE_TYPE = "simple"
+    CACHE_TYPE = "null"
     if CACHE_TYPE == 'redis':
         CACHE_REDIS_URL = os.environ.get('REDIS_URL')
 
