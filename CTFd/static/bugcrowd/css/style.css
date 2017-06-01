@@ -120,6 +120,28 @@ a {
     text-align: center;
 }
 
+.modal-content {
+  border-radius: 0px;
+  border-color: black;
+  border-width: 2px;
+  box-shadow: 0 0 0 5px hsl(0, 0%, 80%), 0 0 0 7px hsl(0, 0%, 100%);
+}
+
+#challenge > h3, h4, p {
+  color: #555;
+}
+
+#solves tr:nth-child(odd) td a, button {
+  color: #ccc;
+}
+
+#solves thead tr td {
+  color: black;
+}
+
+#solves tr:nth-child(even) td {
+  color: #555;
+}
 .chal-desc{
     text-align: left;
 }
