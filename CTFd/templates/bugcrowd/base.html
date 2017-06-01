@@ -24,53 +24,56 @@
     </script>
 </head>
 <body>
-  <div class="body-container tom" id="tom">
-    <div class="navbar navbar-inverse home">
-      <div class="container">
-        <div class="navbar-header">
-          <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a href="{{ request.script_root }}/" class="navbar-brand">{{ ctf_name() }}</a>
+
+      <div class="body-container" id="tom">
+        <div class="navbar navbar-inverse home">
+          <div class="container">
+            <div class="navbar-header">
+              <button class="navbar-toggle" data-target=".navbar-collapse" data-toggle="collapse" type="button">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a href="{{ request.script_root }}/" class="navbar-brand">{{ ctf_name() }}</a>
+            </div>
+            <div class="navbar-collapse collapse" aria-expanded="false" style="height: 0px">
+              <ul class="nav navbar-nav">
+                {% for page in pages() %}
+                  <li><a href="{{ request.script_root }}/{{ page.route }}">{{ page.route|title }}</a></li>
+                {% endfor %}
+                <li><a href="{{ request.script_root }}/teams">Teams</a></li>
+                {% if not hide_scores() %}
+                <li><a href="{{ request.script_root }}/scoreboard">Scoreboard</a></li>
+                {% endif %}
+                <li><a href="{{ request.script_root }}/challenges">Challenges</a></li>
+              </ul>
+              <ul class="nav navbar-nav navbar-right">
+              {% if username is defined %}
+                {% if admin %}
+                <li><a href="{{ request.script_root }}/admin">Admin</a></li>
+                {% endif %}
+                <li><a href="{{ request.script_root }}/team/{{ id }}">Team</a></li>
+                <li><a href="{{ request.script_root }}/profile">Profile</a></li>
+                <li><a href="{{ request.script_root }}/logout">Logout</a></li>
+              {% else %}
+                {% if can_register() %}
+                <li><a href="{{ request.script_root }}/register">Register</a></li>
+                <li><a style="padding-left:0px;padding-right:0px;">|</a></li>
+                {% endif %}
+                <li><a href="{{ request.script_root }}/login">Login</a></li>
+              {% endif %}
+              </ul>
+            </div>
+          </div>
         </div>
-        <div class="navbar-collapse collapse" aria-expanded="false" style="height: 0px">
-          <ul class="nav navbar-nav">
-            {% for page in pages() %}
-              <li><a href="{{ request.script_root }}/{{ page.route }}">{{ page.route|title }}</a></li>
-            {% endfor %}
-            <li><a href="{{ request.script_root }}/teams">Teams</a></li>
-            {% if not hide_scores() %}
-            <li><a href="{{ request.script_root }}/scoreboard">Scoreboard</a></li>
-            {% endif %}
-            <li><a href="{{ request.script_root }}/challenges">Challenges</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-          {% if username is defined %}
-            {% if admin %}
-            <li><a href="{{ request.script_root }}/admin">Admin</a></li>
-            {% endif %}
-            <li><a href="{{ request.script_root }}/team/{{ id }}">Team</a></li>
-            <li><a href="{{ request.script_root }}/profile">Profile</a></li>
-            <li><a href="{{ request.script_root }}/logout">Logout</a></li>
-          {% else %}
-            {% if can_register() %}
-            <li><a href="{{ request.script_root }}/register">Register</a></li>
-            <li><a style="padding-left:0px;padding-right:0px;">|</a></li>
-            {% endif %}
-            <li><a href="{{ request.script_root }}/login">Login</a></li>
-          {% endif %}
-          </ul>
+
+        {% block content %}
+        {% endblock %}
+
+        <div class="navbar navbar-bottom footer">
+            <p class="text-muted text-center"><a style="text-decoration:none;" href="https://ctfd.io"><sub>Powered by CTFd</sub></p>
         </div>
       </div>
-    </div>
-
-    {% block content %}
-    {% endblock %}
-
-    <div class="navbar navbar-bottom footer">
-        <p class="text-muted text-center"><a style="text-decoration:none;" href="https://ctfd.io"><sub>Powered by CTFd</sub></p>
     </div>
   </div>
   <script src="{{ request.script_root }}/static/{{ ctf_theme() }}/js/vendor/jquery.min.js"></script>
