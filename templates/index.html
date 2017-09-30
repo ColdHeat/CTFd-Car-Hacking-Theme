@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block stylesheets %}
+{% endblock %}
+
+{% block content %}
+<div id='tube-background' style="padding-bottom: 6%;">
+    <input type="checkbox" id="switch" checked>
+    <label for="switch" class="switch-label">Turn </label>
+    <div id='tube'>
+        <div id='screen'>
+            <div class="container main-container index" id="index">
+            <h1 class="text-center"><img src="/themes/bugcrowd/static/img/defcon-logo.png" class="defcon-logo"></h1>
+            <h1 class="text-center">Car hacking village</h1>
+            <h3 class="text-center">
+                <p>A cool CTF platform from (tom)<a href="https://ctfd.io">ctfd.io</a></p>
+                <p>Follow us on social media:</p>
+                <a href="https://twitter.com/ctfdio"><i class="fa fa-twitter fa-2x" aria-hidden="true"></i></a>&nbsp;
+                <a href="https://facebook.com/ctfdio"><i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i></a>&nbsp;
+                <a href="https://github.com/ctfd"><i class="fa fa-github fa-2x" aria-hidden="true"></i></a>
+            </h3>
+            <br>
+            <h4 class="text-center">
+                <a href="admin">Click here</a> to login and setup your CTF
+            </h4>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{% endblock %}
